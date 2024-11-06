@@ -1,0 +1,11 @@
+# Create the VPC Peering Connection
+resource "aws_vpc_peering_connection" "dev_to_prod" {
+  vpc_id        = aws_vpc.Development.id
+  peer_vpc_id   = aws_vpc.Production.id
+  auto_accept   = true  # Set to true if you want to automatically accept the connection
+
+  tags = {
+    Name = "DevToProdPeering"
+  }
+}
+
