@@ -93,9 +93,11 @@ resource "aws_route_table" "pvt_route" {
  
   # vpc peering route
   
-#  route {
- #   cidr_block = "172.16.0.0/16"
-  #  vpc_peering_connection_id = aws_vpc_peering_connection.dev_to_prod.id  } }
+ route { 
+  cidr_block = "172.16.0.0/16"
+  vpc_peering_connection_id = aws_vpc_peering_connection.dev_to_prod.id 
+}
+}
 
 #route table association
 
