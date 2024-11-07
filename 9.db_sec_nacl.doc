@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "allow_db_access" {
   to_port           = 3306
   protocol          = "tcp"
   security_group_id = aws_security_group.prod_sec.id  # Security group for RDS
-  cidr_blocks       = ["10.0.0.0/16"]  # Replace with the CIDR block of the Development VPC
+  cidr_blocks       = ["10.0.3.0/24"]  # Replace with the CIDR block of the Development VPC
 }
 
 
@@ -24,7 +24,7 @@ resource "aws_security_group_rule" "allow_dbssh_access" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = aws_security_group.prod_sec.id  # Security group for RDS
-  cidr_blocks       = ["10.0.0.0/16"]  # Replace with the CIDR block of the Development VPC
+  cidr_blocks       = ["10.0.3.0/24"]  # Replace with the CIDR block of the Development VPC
 }
 
 # db subnet group
