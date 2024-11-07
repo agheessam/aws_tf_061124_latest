@@ -8,4 +8,10 @@ resource "aws_vpc_peering_connection" "dev_to_prod" {
     Name = "DevToProdPeering"
   }
 }
-
+# Enable DNS resolution from Production to Development VPC
+resource "aws_vpc_peering_connection_options" "accepter_options" {
+  vpc_peering_connection_id = aws_vpc_peering_connection.dev_to_prod.id
+  accepter {
+    allow_remote_vpc_dns_resolution = true
+  }
+}
